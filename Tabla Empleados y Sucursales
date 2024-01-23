@@ -1,0 +1,78 @@
+create table Empleados(
+número_empleado int primary key identity not null,
+nombre_empleado varchar(100) not null, 
+número_de_teléfono_empleado bigint not null, 
+edad_empleado int not null,
+sucursal_pertenece text not null, 
+número_de_sucursal int not null,
+email_empleado varchar(30) not null, 
+contraseña_empleado varchar(20) not null
+
+);
+
+create table Sucursales(
+número_de_sucursal int primary key identity not null,
+nombre_sucursal varchar(50) not null,
+nombre_persona_encargada varchar(100) not null,
+dirección_sucursal text not null,
+número_teléfono_sucursal bigint not null,
+ciudad_sucursal text not null,
+estado_sucursal text not null
+);
+
+ALTER TABLE Empleados
+ADD CONSTRAINT fk_número_de_sucursal
+FOREIGN KEY (número_de_sucursal)
+REFERENCES Sucursales (número_de_sucursal);
+
+insert into Sucursales values ('Obraje', 'Fernando Calderón Ayala', 'Calle Dr. Jesús Díaz de León #438 col. Obraje', 4493780921, 'Aguascalientes', 'Aguascalientes'),
+('Mazatlán', 'Daniela Fernanda Díaz Ordaz', 'Av. de la Mariana #6204, Marina local 35', 669232059, 'Mazatlán', 'Sinaloa'),
+('Zapopan', 'Mario Alberto Jimenez Salcido', 'Av. Manuel J. Clouthier 525 col. Benito Juarez', 3337841230, 'Zapopan', 'Jalisco'),
+('Melchor', 'Yesinia Guadalupe Campos Rojo', 'Av. Melchor Ocampo 2858 Zona Centro', 6143906721, 'Chihuhahua', 'Chihuahua'),
+('Constitución', 'Tamara Alejandra Bernal Ramos', 'Calle Constitución #106 Zona Centro', 6181962954, 'Durango', 'Durango');
+
+insert into Sucursales values ('Centro', 'Samuel Enrique Barrios Enciso', 'Av. Hidalgo #338 Zacatecas Centro', 4929301250, 'Zacatecas', 'Zacatecas');
+insert into Sucursales values ('Las Mercedes','Sonia Alejandra Fernández Moreno', 'Calle Roble #507 Fracc. Las Mercedes', 4447831225, 'San Luis Potosi', 'San Luis Potosi');
+
+insert into Empleados values ('Carlos Castañeda López', '44314736778', '30','Las Mercedes','7','castaneda.carlos@akiras.com', 123456);
+
+insert into Empleados values ('Alonso Mendez Gómez', '4436458897', '34','Las Mercedes', 7,'mendez.alonso@akiras.com', 123456);
+insert into Empleados values ('Sonia Alejandra Fernández Moreno', '4438456721', '37','Las Mercedes', 7,'fernandez.sonia@akiras.com', 123456),
+('Carlos Eli Saucedo Peña', '4424356789', '28','Las Mercedes', 7,'saucedo.carlos@akiras.com', 123456),
+('Pedro Ramirez Quintana', '4437458768', '47','Las Mercedes', 7,'quintana.pedro@akiras.com', 123456);
+
+insert into Empleados values ('Fernando Calderón Ayala', '5576482367', '49','Obraje', 1,'calderon.fernando@akiras.com', 123456),
+('Stefania Rodriguez Camacho', '55654387', '29','Obraje', 1,'rodriguez.stefania@akiras.com', 123456),
+('Arturo Ordaz Vega', '5524567876', '44','Obraje', 1,'ordaz.arturo@akiras.com', 123456),
+('Enrique Rangel Verdugo', '55987654', '38','Obraje', 1,'rangel.enrique@akiras.com', 123456);
+
+insert into Empleados values ('José Luis Hernández Acosta', '5565473897', '34','Obraje', 1,'hernandez.jose@akiras.com', 123456);
+
+insert into Empleados values ('Javier Castañeda Urirte', '8847563827', '28','Mazatlán', 2,'castañeda.javier@akiras.com', 123456),
+('Omar Vargas Loaiza', '8812345678', '28','Mazatlán', 2,'vargas.omar@akiras.com', 123456),
+('Bianca Rodriguez Perez', '8885647363', '43','Mazatlán', 2,'rodriguez.bianca@akiras.com', 123456),
+('Daniela Fernanda Díaz Ordaz', '8813243546','45','Mazatlán', 2,'diaz.daniela@akiras.com', 123456),
+('Agustín Sánchez Negrete', '8896783546','20','Mazatlán', 2,'sanchez.agustin@akiras.com', 123456);
+
+insert into Empleados values ('Mario Alberto Jiménez Salcido', 4719385647, 45,'Zapopan',3,'castañeda.javier@akiras.com', 123456);
+
+insert into Empleados values ('Lorena Grisel Guardado Lopez', 5071377323, 56,'Zapopan',3,'guardado.lopez@akiras.com', 123456),
+('Luis Orlando Robles Robles', 5000015945, 25,'Zapopan',3,'robles.luis@akiras.com', 123456),
+('Verenice Gaxiola Ruelas', 5623484567, 34,'Zapopan',3,'gaxiola.verenica@akiras.com', 123456),
+('Luis Manuel Covarrubias Covarrubias', 5062677698, 29,'Zapopan',3,'covarrubias.luis@akiras.com', 123456),
+('Erendira Gabriela Zepeda Plazola', 5190577590, 37,'Zapopan',3,'zepeda.erendira@akiras.com', 123456),
+('Yesenia Guadalupe Campos Rojo', 4435678912, 25,'Melchor',4,'campos.yesenia@akiras.com', 123456),
+('Lucia Leyva Reyes', 4432001858, 37,'Melchor',4,'leyva.lucia@akiras.com', 123456),
+('Victor Hugo Sinuhe López', 5151765176, 22,'Melchor',4,'sinuhe.victor@akiras.com', 123456),
+('Michelle Diaz Bolaños', 5102624567, 28,'Melchor',4,'diaz.michelle@akiras.com', 123456),
+('Martha Xochitl Robles Hernandez', 5043503654, 28,'Melchor',4,'robles.xochitl@akiras.com', 123456),
+('Magda Zulema Gaxiola Padilla', 5131271312, 48,'Constitucion',5,'gaxiola.magda@akiras.com', 123456),
+('Tamara Alejandra Bernal Ramos', 5145632712, 55,'Constitucion',5,'bernal.tamara@akiras.com', 123456),
+('Jorge Rene Ku Cardos', 5102292133, 27,'Constitucion',5,'ku.jorge@akiras.com', 123456),
+('Isela Camacho Orozco', 5101162764, 37,'Constitucion',5,'camacho.isela@akiras.com', 123456),
+('Mireille García Moreno', 5100762544, 34,'Constitucion',5,'garcia.mireille@akiras.com', 123456),
+('Samuel Enrique Barrios Enciso', 7655843621, 57,'Centro',6,'barrios.samuel@akiras.com', 123456),
+('Antonia Hernández Pérez', 7655522110, 23,'Centro',6,'hernandez.antonia@akiras.com', 123456),
+('Fernando Reyes Vázquez', 7655508260, 36,'Centro',6,'reyes.fernando@akiras.com', 123456),
+('Nancy Janeth Chavez Reyna', 7655525118, 28,'Centro',6,'chavez.nancy@akiras.com', 123456),
+('Fany Yoana Ortega Guzman', 7655516199, 34,'Centro',6,'ortega.fany@akiras.com', 123456);
